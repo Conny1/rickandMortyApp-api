@@ -1,5 +1,7 @@
 import characterRouter from "./characters.route.js";
 import locationRouter from "./locations.route.js";
+import episodeRouter from "./episode.route.js";
+
 import express from "express";
 const router = express.Router();
 
@@ -11,6 +13,10 @@ const defaultRouters = [
   {
     path: "/location",
     route: locationRouter,
+  },
+  {
+    path: "/episode",
+    route: episodeRouter,
   },
 ];
 
