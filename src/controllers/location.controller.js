@@ -1,8 +1,17 @@
 import { locationService } from "../services/index.js";
 
 const findandfilterlocations = async (req, resp) => {
+  let query = "";
+  if (req.query) {
+    for (let key in req.query) {
+      if (req.query[key]) {
+        query += `${key}=${req.query[key]}&`;
+      }
+    }
+  }
   try {
-    const locations = await locationService.findandfilterlocations();
+    console.log(query, "loction");
+    const locations = await locationService.findandfilterlocations(query);
 
     resp.status(200).json({ sucecess: true, data: locations });
   } catch (error) {

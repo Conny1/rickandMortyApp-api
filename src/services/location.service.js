@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const findandfilterlocations = async () => {
+const findandfilterlocations = async (query) => {
   const locations = await axios.get(
-    `${process.env.RICKMORTY_URL}/location?page=1`
+    `${process.env.RICKMORTY_URL}/location?${query}`
   );
 
   return locations.data;

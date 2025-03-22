@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const findandfiltercharacters = async () => {
+const findandfiltercharacters = async (query) => {
   const characters = await axios.get(
-    `${process.env.RICKMORTY_URL}/character?page=1`
+    `${process.env.RICKMORTY_URL}/character?${query}`
   );
 
   return characters.data;

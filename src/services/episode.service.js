@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const findandfilterepisodes = async () => {
+const findandfilterepisodes = async (query) => {
   const episodes = await axios.get(
-    `${process.env.RICKMORTY_URL}/episode?page=1`
+    `${process.env.RICKMORTY_URL}/episode?page=1&${query}`
   );
 
   return episodes.data;
