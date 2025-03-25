@@ -13,6 +13,12 @@ const getcharacterbytid = async (id) => {
     `${process.env.RICKMORTY_URL}/character/${id}`
   );
 
+  if (character.data["episode"]) {
+    character.data["episode"] = await Promise.all(
+      character.data["episode"].map(async (eps) => (await axios.get(eps)).data)
+    );
+  }
+  // console.log(character.data.episode);
   return character.data;
 };
 
